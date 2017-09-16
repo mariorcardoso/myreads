@@ -13,7 +13,7 @@ class Shelf extends React.Component {
                 <Book
                   title={book.title}
                   authors={book.authors}
-                  url={book.url}
+                  coverLink={book.imageLinks.smallThumbnail}
                 />
               </li>
             ))}
