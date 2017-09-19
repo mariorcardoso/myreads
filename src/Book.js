@@ -16,12 +16,13 @@ class Book extends React.Component {
   }
 
   render() {
+    const shelf = this.state.shelf ? this.state.shelf : "none"
     return(
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.coverLink})` }}></div>
           <div className="book-shelf-changer">
-            <select value={this.state.shelf} onChange={(event) => this.updateShelf(this.props.id, event.target.value)}>
+            <select value={shelf} onChange={(event) => this.updateShelf(this.props.id, event.target.value)}>
               <option value="none" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
