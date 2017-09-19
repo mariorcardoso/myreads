@@ -15,10 +15,21 @@ class SearchBooks extends React.Component {
     if (query){
       BooksAPI.search(query, 50).then((response) => {
         if (Array.isArray(response)){
-          this.setState({ books: response })
+          this.updateBooks(response)
         }
       })
     }
+  }
+
+  updateBooks = (books) => {
+    const shelfBooks = this.props.shelfBooks
+    let searchBooks = books
+    shelfBooks.forEach((shelfBook) => {
+      const searchBook = searchBooks.find(searchBook => searchBook.id === shelfBook.id);
+      if(searchBook)
+        searchBook.shelf = shelfBook.shelf
+    })
+    this.setState({ books: searchBooks })
   }
 
   render() {
