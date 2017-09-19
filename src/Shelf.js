@@ -16,7 +16,7 @@ class Shelf extends React.Component {
                   title={book.title}
                   authors={book.authors}
                   coverLink={book.imageLinks && book.imageLinks.smallThumbnail}
-                  updateShelfs={this.props.updateShelfs}
+                  updateBookShelf={this.props.updateBookShelf}
                 />
               </li>
             ))}

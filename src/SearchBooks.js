@@ -45,6 +45,7 @@ class SearchBooks extends React.Component {
                   title={book.title}
                   authors={book.authors}
                   coverLink={book.imageLinks && book.imageLinks.smallThumbnail}
+                  updateBookShelf={this.props.updateBookShelf}
                 />
               </li>
             ))}
