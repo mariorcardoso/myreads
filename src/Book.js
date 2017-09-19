@@ -3,9 +3,15 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 class Book extends React.Component {
+  state = {
+    shelf: this.props.shelf
+  }
+
   updateShelf = (bookId, shelf) => {
+    this.setState({shelf: shelf})
     BooksAPI.update({id: bookId}, shelf).then((res) => {
-      this.props.updateBooksList()
+      if(this.props.updateShelfs)
+        this.props.updateShelfs()
     })
   }
 
@@ -15,7 +21,7 @@ class Book extends React.Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.coverLink})` }}></div>
           <div className="book-shelf-changer">
-            <select value={this.props.shelf} onChange={(event) => this.updateShelf(this.props.id, event.target.value)}>
+            <select value={this.state.shelf} onChange={(event) => this.updateShelf(this.props.id, event.target.value)}>
               <option value="none" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

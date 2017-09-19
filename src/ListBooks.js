@@ -9,14 +9,14 @@ class ListBooks extends React.Component {
     books: []
   }
 
-  getAllBooks = () => {
+  updateBooksState = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
 
   componentDidMount() {
-    this.getAllBooks()
+    this.updateBooksState()
   }
 
   render() {
@@ -31,9 +31,9 @@ class ListBooks extends React.Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <Shelf books={currentlyReading} title={'Currently Reading'} updateBooksList={this.getAllBooks}/>
-          <Shelf books={wantToRead} title={'Want to Read'} updateBooksList={this.getAllBooks}/>
-          <Shelf books={read} title={'Read'} updateBooksList={this.getAllBooks}/>
+          <Shelf books={currentlyReading} title={'Currently Reading'} updateShelfs={this.updateBooksState}/>
+          <Shelf books={wantToRead} title={'Want to Read'} updateShelfs={this.updateBooksState}/>
+          <Shelf books={read} title={'Read'} updateShelfs={this.updateBooksState}/>
         </div>
         <div className="open-search">
           <Link to='/search'>Add a book</Link>

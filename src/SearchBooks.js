@@ -40,6 +40,8 @@ class SearchBooks extends React.Component {
             {this.state.books.map((book) => (
               <li key={book.id}>
                 <Book
+                  id={book.id}
+                  shelf={book.shelf}
                   title={book.title}
                   authors={book.authors}
                   coverLink={book.imageLinks && book.imageLinks.smallThumbnail}
