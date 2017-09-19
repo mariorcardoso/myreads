@@ -11,9 +11,12 @@ class Shelf extends React.Component {
             {this.props.books.map((book) => (
               <li key={book.id}>
                 <Book
+                  id={book.id}
+                  shelf={book.shelf}
                   title={book.title}
                   authors={book.authors}
                   coverLink={book.imageLinks.smallThumbnail}
+                  updateBooksList={this.props.updateBooksList}
                 />
               </li>
             ))}
