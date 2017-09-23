@@ -22,12 +22,9 @@ class SearchBooks extends React.Component {
   }
 
   updateBooks = (searchBooks) => {
-    const shelfBooks = this.props.shelfBooks
-    shelfBooks.forEach((shelfBook) => {
-      const searchBook = searchBooks.find(searchBook => searchBook.id === shelfBook.id);
-      if(searchBook)
-        searchBook.shelf = shelfBook.shelf
-    })
+    let bookIdWithShelf = {}
+    this.props.shelfBooks.forEach((shelfBook) => bookIdWithShelf[shelfBook.id] = shelfBook.shelf)
+    searchBooks.forEach((book) => book.shelf = bookIdWithShelf[book.id] || 'none')
     this.setState({ books: searchBooks })
   }
 
