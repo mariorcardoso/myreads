@@ -12,3 +12,7 @@ The application was developed on top of the starter template as such it only req
 ## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## License
+
+This project is released under the [MIT License](https://opensource.org/licenses/MIT).
